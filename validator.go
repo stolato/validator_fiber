@@ -6,6 +6,8 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
+var validate = validator.New()
+
 type ErrorsHandle struct {
 	FailedField string
 	Tag         string
@@ -14,7 +16,7 @@ type ErrorsHandle struct {
 }
 
 func Validator(item interface{}) []ErrorsHandle {
-	validate := validator.New()
+
 	var validationErrors []ErrorsHandle
 	errs := validate.Struct(item)
 	if errs != nil {
@@ -23,6 +25,7 @@ func Validator(item interface{}) []ErrorsHandle {
 
 			elem.FailedField = strings.ToLower(err.Field())
 			elem.Tag = err.Tag()
+			elem.Value = err.Value()
 			elem.Error = true
 
 			validationErrors = append(validationErrors, elem)

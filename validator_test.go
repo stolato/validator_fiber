@@ -3,7 +3,7 @@ package validator_fiber_test
 import (
 	"testing"
 
-	validator_fiber "github.com/stolato/validator-fiber"
+	"github.com/stolato/validator_fiber"
 )
 
 // User struct para testar a validação

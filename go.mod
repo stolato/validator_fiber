@@ -1,4 +1,4 @@
-module github.com/stolato/validator-fiber
+module github.com/stolato/validator_fiber
 
 go 1.25.5
 
